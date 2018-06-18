@@ -89,7 +89,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
         // double vx = rho_dot * cos(phi);
         // double vy = rho_dot * sin(phi);
         // ekf_.x_ << px, py, vx , vy;
-        // phi is not the direction of the speed, it is better to set vx and vy to 0
+        // set vx and vy to 0 to get better RMSE
         ekf_.x_ << px, py, 0 , 0;
     }
     else if (measurement_pack.sensor_type_ == MeasurementPackage::LASER) {
